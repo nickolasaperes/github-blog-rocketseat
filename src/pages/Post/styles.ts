@@ -53,6 +53,17 @@ export const PostContent = styled.main`
   padding: 2.5rem;
   font-size: 1rem;
   color: ${(props) => props.theme['base-text']};
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  code {
+    padding: 1rem;
+    display: block;
+    margin-bottom: 1rem;
+    background-color: ${(props) => props.theme['base-post']};
+  }
 `
 
 export const PostDetails = styled.div`

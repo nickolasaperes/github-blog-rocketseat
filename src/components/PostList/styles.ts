@@ -20,6 +20,7 @@ export const SearchInput = styled.input`
   border: 1px solid ${(props) => props.theme['base-border']};
   border-radius: 6px;
   padding: 1rem;
+  width: 100%;
 
   &::placeholder {
     color: ${(props) => props.theme['base-label']};
@@ -41,7 +42,7 @@ export const PostListHeaderTitle = styled.div`
 `
 
 export const PostListContent = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
 `

@@ -14,40 +14,58 @@ import {
   faBuilding,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
+import { memo } from 'react'
 
-export function UserCard() {
+interface UserCardProps {
+  name: string
+  username: string
+  description: string
+  profilePictureURL: string
+  organization?: string
+  followers: number
+  profileURL: string
+}
+
+function UserCardComponent({
+  name,
+  username,
+  description,
+  profileURL,
+  profilePictureURL,
+  organization,
+  followers,
+}: UserCardProps) {
   return (
     <UserCardContainer>
       <ProfilePictureContainer>
-        <img src="https://github.com/nickolasaperes.png" alt="" />
+        <img src={profilePictureURL} alt="" />
       </ProfilePictureContainer>
       <ProfileContent>
-        <ProfileLink href="https://github.com/nickolasaperes">
+        <ProfileLink href={profileURL} target="_blank" rel="noopener">
           Github <FontAwesomeIcon size="sm" icon={faArrowUpRightFromSquare} />
         </ProfileLink>
         <div>
-          <h1>Nickolas A Peres</h1>
-          <ProfileDescription>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenpm i --save
-            @fortawesome/free-brands-svg-iconsnean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </ProfileDescription>
+          <h1>{name}</h1>
+          <ProfileDescription>{description}</ProfileDescription>
         </div>
         <Footer>
           <FooterItem>
-            <FontAwesomeIcon icon={faGithub} /> nickolasaperes
+            <FontAwesomeIcon icon={faGithub} /> {username}
           </FooterItem>
-          <FooterItem>
-            <FontAwesomeIcon icon={faBuilding} />
-            Rocketseat
-          </FooterItem>
+          {organization && (
+            <FooterItem>
+              <FontAwesomeIcon icon={faBuilding} />
+              {organization}
+            </FooterItem>
+          )}
           <FooterItem>
             <FontAwesomeIcon icon={faUserGroup} />
-            32 seguidores
+            {followers === 1 ? `1 seguidor` : `${followers} seguidores`}
           </FooterItem>
         </Footer>
       </ProfileContent>
     </UserCardContainer>
   )
 }
+
+export const UserCard = memo(UserCardComponent)

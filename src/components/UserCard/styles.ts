@@ -27,6 +27,7 @@ export const ProfileContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  width: 100%;
 `
 
 export const ProfileDescription = styled.p`

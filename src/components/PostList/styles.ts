@@ -43,6 +43,6 @@ export const PostListHeaderTitle = styled.div`
 
 export const PostListContent = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, 1fr);
   gap: 2.5rem;
 `
